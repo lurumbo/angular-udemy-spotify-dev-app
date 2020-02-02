@@ -1,1 +1,11 @@
-<p>home works!</p>
+<div class="card-columns">
+    <div class="card" *ngFor="let release of newReleases">
+        <img class="card-img-top" [src]="release.images[0].url" [alt]="release.name">
+        <div class="card-body">
+            <h5 class="card-title">{{ release.name }}</h5>
+            <p class="card-text">
+                <span *ngFor="let artist of release.artists" class="badge badge-secondary">{{ artist.name  }}</span>
+            </p>
+        </div>
+    </div>
+</div>
