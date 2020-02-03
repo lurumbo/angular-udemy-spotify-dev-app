@@ -3,4 +3,5 @@
         <input #term type="text" (keyup)="search(term.value)" class="form-control" placeholder="Search artist...">
     </div>
 </div>
-<app-cards [items]="artists"></app-cards>
+<app-loading *ngIf="loading"></app-loading>
+<app-cards *ngIf="!loading" [items]="artists"></app-cards>

@@ -9,6 +9,7 @@ import { SpotifyService } from '../../services/spotify.service';
 export class SearchComponent implements OnInit {
 
   artists:any[] = [];
+  loading:boolean;
 
   constructor(private spotifyService:SpotifyService) { }
 
@@ -17,10 +18,13 @@ export class SearchComponent implements OnInit {
 
   search(term:string) {
     console.log('text searched', term);
+    if (term === '') return this.artists = [];
+    this.loading = true;
     this.spotifyService.getArtist(term)
       .subscribe( (artists:any) => {
         console.log(artists)
         this.artists = artists;
+        this.loading = false;
       });
 
   }
