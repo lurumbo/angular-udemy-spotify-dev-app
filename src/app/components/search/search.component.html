@@ -3,14 +3,4 @@
         <input #term type="text" (keyup)="search(term.value)" class="form-control" placeholder="Search artist...">
     </div>
 </div>
-<div class="card-columns m-5">
-    <div class="card" *ngFor="let artist of artists">
-        <img class="card-img-top" [src]="artist.images | noimage" [alt]="artist.name">
-        <div class="card-body">
-            <h5 class="card-title">{{ artist.name }}</h5>
-            <p class="card-text">
-                <span *ngFor="let artist of artist.artists" class="badge badge-secondary">{{ artist.name  }}</span>
-            </p>
-        </div>
-    </div>
-</div>
+<app-cards [items]="artists"></app-cards>
